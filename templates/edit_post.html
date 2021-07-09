@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit News {% endblock %}
+
+{% block content %}
+<div class="col-md-8 offset-2">
+    <h1 class="text-center">Edit Post</h1>
+    <form class="form-control p-3" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update Post" class="btn btn-success">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="col-sm-8 offset-2">
+        <h2 style="text-align: center;">{{ post.title }}</h2>
+        {% if post.photo %}
+            <div class="text-center">
+                <img src="{{ post.photo.url }}" class="img-thumbnail" alt="{{ post.title }}">
+                <h6 style="font-style: italic;">
+                Published {{ post.publish|date:"d.m.Y H:i:s" }} by <b>{{ post.author.last_name }} {{ post.author.first_name}}</b></h6>
+            </div>
+        {% endif %}
+        <p>{{ post.body|linebreaks }}</p>
+        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit Post</a>
+        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete Post</a>
+    </div>
+{% endblock %}

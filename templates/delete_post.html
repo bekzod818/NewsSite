@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete News {% endblock %}
+
+{% block content %}
+<div class="col-md-8 offset-2">
+    <h1 class="text-center">Delete Post</h1>
+    <form class="form-control p-3" method="post" enctype="multipart/form-data">
+        <p>Are you sure delete this post?</p>
+        {% csrf_token %}
+        <input type="submit" value="Yes, I'm sure" class="btn btn-danger">
+        <a href="{% url 'post_list' %}" class="btn btn-secondary">No, take me back</a>
+    </form>
+</div>
+{% endblock %}
