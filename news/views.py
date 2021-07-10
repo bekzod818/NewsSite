@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from .models import Post
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.http import HttpResponseNotFound
 
 # Create your views here.
 class NewsListView(ListView):
@@ -38,3 +39,7 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('post_list')
+
+
+def pageNotFound(request, exception):
+    return HttpResponseNotFound('<h1 style="text-align:center;">Bunday sahifa topilmadi (404)</h1>')
