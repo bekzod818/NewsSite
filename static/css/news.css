@@ -1,126 +1,144 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700,800);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
 figure.snip1208 {
-  font-family: 'Raleway', Arial, sans-serif;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  min-width: 220px;
-  max-width: 310px;
-  width: 100%;
-  background-color: #ffffff;
-  color: #000000;
-  text-align: left;
-  font-size: 16px;
+    font-family: 'Raleway', Arial, sans-serif;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 220px;
+    max-width: 310px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: left;
+    font-size: 16px;
 }
+
 figure.snip1208 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
+
 figure.snip1208 img {
-  max-width: 100%;
-  vertical-align: top;
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+    max-width: 100%;
+    vertical-align: top;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
+
 figure.snip1208 figcaption {
-  padding: 25px;
-  position: relative;
+    padding: 25px;
+    position: relative;
 }
+
 figure.snip1208 .date,
 figure.snip1208 i {
-  background-color: #1abc9c;
-  top: 25px;
-  color: #fff;
-  left: 25px;
-  min-height: 60px;
-  min-width: 60px;
-  position: absolute;
-  text-align: center;
+    background-color: #1abc9c;
+    top: 25px;
+    color: #fff;
+    left: 25px;
+    min-height: 60px;
+    min-width: 60px;
+    position: absolute;
+    text-align: center;
 }
+
 figure.snip1208 .date {
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-  font-size: 22px;
-  font-weight: 700;
-  text-transform: uppercase;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
+
 figure.snip1208 .date span {
-  display: block;
-  line-height: 30px;
+    display: block;
+    line-height: 30px;
 }
+
 figure.snip1208 .date .month {
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
 }
+
 figure.snip1208 i {
-  line-height: 60px;
-  font-size: 30px;
-  -webkit-transform: rotateY(-90deg);
-  transform: rotateY(-90deg);
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
+    line-height: 60px;
+    font-size: 30px;
+    -webkit-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
 }
+
 figure.snip1208 h3,
 figure.snip1208 p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
+
 figure.snip1208 h3 {
-  margin-bottom: 10px;
-  display: inline-block;
-  font-weight: 600;
-  color: #333333;
-  text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 600;
+    color: #333333;
+    text-transform: uppercase;
 }
+
 figure.snip1208 p {
-  font-size: 0.8em;
-  margin-bottom: 20px;
-  line-height: 1.6em;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    line-height: 1.6em;
 }
+
 figure.snip1208 button {
-  border: medium none;
-  padding: 10px 20px;
-  background-color: #1abc9c;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 0.8em;
+    border: medium none;
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8em;
 }
+
 figure.snip1208 a {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
 }
+
 figure.snip1208:hover img,
 figure.snip1208.hover img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
+
 figure.snip1208:hover .date,
 figure.snip1208.hover .date {
-  -webkit-transform: rotateY(90deg);
-  transform: rotateY(90deg);
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
 }
+
 figure.snip1208:hover i,
 figure.snip1208.hover i {
-  -webkit-transform: rotateY(0);
-  transform: rotateY(0);
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
 }
+
 figure.snip1208:hover button,
 figure.snip1208.hover button {
-  background-color: #117964;
+    background-color: #117964;
 }

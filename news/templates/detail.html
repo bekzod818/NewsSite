@@ -2,6 +2,33 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
+{% block header %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="{% url 'home' %}">Raximov Blog</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="{% url 'post_list' %}">Posts</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="nav-link scrollto" href="">{{ user.username }}</a></li>
+                        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                        <li><a class="nav-link scrollto" href="{% url 'login' %}">Log In</a></li>
+                        <li><a class="nav-link scrollto" href="{% url 'signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+{% endblock %}
+
 {% block content %}
     <div class="col-sm-8 offset-2">
         <h2 style="text-align: center;">{{ post.title }}</h2>
@@ -9,7 +36,8 @@
             <div class="text-center">
                 <img src="{{ post.photo.url }}" class="img-thumbnail" alt="{{ post.title }}">
                 <h6 style="font-style: italic;">
-                Published {{ post.publish|date:"d.m.Y H:i:s" }} by <b>{{ post.author.last_name }} {{ post.author.first_name}}</b></h6>
+                    Published {{ post.publish|date:"d.m.Y H:i:s" }} by
+                    <b>{{ post.author.last_name }} {{ post.author.first_name }}</b></h6>
             </div>
         {% endif %}
         <p>{{ post.body|linebreaks }}</p>

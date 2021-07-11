@@ -1,11 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
-from .models import Post
+from .models import Post, Category
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.http import HttpResponseNotFound
+from django.views.generic import TemplateView
+
 
 # Create your views here.
+class IndexTemplateView(TemplateView):
+    template_name = 'index.html'
+
+
 class NewsListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
