@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block title %}
     Log In Page
 {% endblock %}
 
 {% block content %}
-    <div class="text-center p-5">
-        <h2>Log In This Site</h2>
+    <div class="p-5">
+        <h2 class="text-center">Log In This Site</h2>
         <form action="" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
+            <br>
             <button type="submit" class="btn btn-primary">Log In</button>
+            <a href="{% url 'post_list' %}" class="btn btn-danger">Back</a>
         </form>
     </div>
 {% endblock %}

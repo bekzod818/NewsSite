@@ -13,8 +13,8 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="{% url 'post_list' %}">Posts</a></li>
-                    <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
                     {% if user.is_authenticated %}
+                        <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
                         <li><a class="nav-link scrollto" href="">{{ user.username }}</a></li>
                         <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
@@ -41,7 +41,9 @@
             </div>
         {% endif %}
         <p>{{ post.body|linebreaks }}</p>
-        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit Post</a>
-        <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete Post</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit Post</a>
+            <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete Post</a>
+        {% endif %}
     </div>
 {% endblock %}

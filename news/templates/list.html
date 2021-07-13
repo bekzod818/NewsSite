@@ -7,15 +7,16 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="{% url 'home' %}">Raximov Blog</a></h1>
+            <h1 class="logo"><a href="{% url 'home' %}">Raximov Dev</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
 
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="{% url 'post_list' %}">Posts</a></li>
-                    <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
                     {% if user.is_authenticated %}
+                        <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
                         <li><a class="nav-link scrollto" href="">{{ user.username }}</a></li>
+                        <!-- <li><a class="nav-link scrollto" href="{% url 'password_change' %}">Change Password</a></li> -->
                         <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log Out</a></li>
                     {% else %}
                         <li><a class="nav-link scrollto" href="{% url 'login' %}">Log In</a></li>

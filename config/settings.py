@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    # django-crispy-forms
+    'crispy_forms',
     # My_apps
     'news.apps.NewsConfig',
     'accounts.apps.AccountsConfig',
@@ -136,10 +138,16 @@ STATICFILES_DIRS = [
 ]
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-LOGIN_REDIRECT_URL = 'post_list'
-LOGOUT_REDIRECT_URL = 'post_list'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'post_list'
+LOGOUT_REDIRECT_URL = 'post_list'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# EMAIL BACKEND
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
