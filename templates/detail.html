@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block header %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="{% url 'home' %}">Raximov Blog</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="{% url 'post_list' %}">Posts</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
+                        <li><a class="nav-link scrollto" href="">{{ user.username }}</a></li>
+                        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                        <li><a class="nav-link scrollto" href="{% url 'login' %}">Log In</a></li>
+                        <li><a class="nav-link scrollto" href="{% url 'signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-8 offset-2">
+        <h2 style="text-align: center;">{{ post.title }}</h2>
+        {% if post.photo %}
+            <div class="text-center">
+                <img src="{{ post.photo.url }}" class="img-thumbnail" alt="{{ post.title }}">
+                <h6 style="font-style: italic;">
+                    Published {{ post.publish|date:"d.m.Y H:i:s" }} by
+                    <b>{{ post.author.last_name }} {{ post.author.first_name }}</b></h6>
+            </div>
+        {% endif %}
+        <p>{{ post.body|safe|linebreaks }}</p>
+        <br>
+        <div>
+            <h2 class="text-center">Comments ...</h2>
+            {% if not post.comments.all %}
+                <a href="{% url 'add_comment' post.pk %}" class="btn btn-primary">Add Comment</a>
+                <p>No Comments Yet</p>
+            {% else %}
+                <a href="{% url 'add_comment' post.pk %}" class="btn btn-primary">Add Comment</a>
+                {% for comment in post.comments.all %}
+                    <figure class="text-end">
+                      <blockquote class="blockquote">
+                        <p>{{ comment.body }}</p>
+                      </blockquote>
+                        <figcaption class="blockquote-footer">
+                            <b>{{ comment.date_added|date:"d M Y H:i" }}</b> commented by <cite title="Source Title">{{ comment.author }}</cite>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit Post</a>
+            <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete Post</a>
+        {% endif %}
+    </div>
+{% endblock %}

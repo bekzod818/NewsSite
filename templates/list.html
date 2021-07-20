@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} News Site {% endblock %}
+
+{% block header %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="{% url 'home' %}">Raximov Dev</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="{% url 'post_list' %}">Posts</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="nav-link scrollto" href="{% url 'post_new' %}">Add Post</a></li>
+                        <li><a class="nav-link scrollto" href="">{{ user.username }}</a></li>
+                        <!-- <li><a class="nav-link scrollto" href="{% url 'password_change' %}">Change Password</a></li> -->
+                        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                        <li><a class="nav-link scrollto" href="{% url 'login' %}">Log In</a></li>
+                        <li><a class="nav-link scrollto" href="{% url 'signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center;">Yangiliklar</h1>
+    {% for post in posts %}
+        <div class="col-sm-3">
+            <figure class="snip1208">
+                {% if post.photo %}
+                    <img src="{{ post.photo.url }}"/>
+                {% endif %}
+                <div class="date"><span class="day">{{ post.publish|date:"d" }}</span><span
+                        class="month">{{ post.publish|date:"M" }}</span></div>
+                <i class="ion-film-marker"></i>
+                <figcaption>
+                    <h4>{{ post.title }}</h4>
+                    <p>
+                        <b>{{ post.cat }}</b>
+                        {{ post.body|truncatewords:30|safe|linebreaks }}
+                    </p>
+                    <p style="font-style: italic;">Published by <b>{{ post.author.last_name }}
+                        {{ post.author.first_name }}</b></p>
+                    <button>Read More</button>
+                </figcaption>
+                <a href="{{ post.get_absolute_url }}"></a>
+            </figure>
+        </div>
+    {% endfor %}
+    {% include "pagination.html" with page=page_obj %}
+{% endblock %}

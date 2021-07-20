@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Comment on Blog Post
+{% endblock %}
+
+{% block content %}
+    <h1>Add Comment ...</h1>
+    <br>
+    <div class="form-group">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <button type="submit" class="btn btn-success">Add Comment</button>
+            <a href="{% url 'post_list' %}" class="btn btn-danger">Back</a>
+        </form>
+    </div>
+{% endblock %}

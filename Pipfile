@@ -9,6 +9,9 @@ pillow = "*"
 whitenoise = "*"
 gunicorn = "*"
 django-crispy-forms = "*"
+django-ckeditor = "*"
+environs = {extras = ["django"], version = "*"}
+psycopg2-binary = "*"
 
 [dev-packages]
 
